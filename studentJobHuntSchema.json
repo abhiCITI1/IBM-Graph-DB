@@ -1,0 +1,47 @@
+{
+	"vertexLabels" : [
+		{"name" : "Student"},
+		{"name" : "Job"},
+		{"name" : "Company"}
+	],
+
+	"edgeLabels" : [
+		{"name" : "searching" , "multiplicity" : "MULTI"},
+		{"name" : "recruits"	, "multiplicity" : "MULTI"},
+		{"name" : "offeredBy"	, "multiplicity" : "MULTI"}
+	],
+
+	"propertyKeys" : [
+		{"name" : "student_FirstName"  , "dataType" : "String" , "cardinality" : "SINGLE" },
+		{"name" : "student_LastName"  , "dataType" : "String" , "cardinality" : "SINGLE"},
+		{"name" : "student_Age"  , "dataType" : "Integer" , "cardinality" : "SINGLE"},
+		{"name" : "student_Email"  , "dataType" : "String" , "cardinality" : "SINGLE"},
+		{"name" : "student_PhNo"  , "dataType" : "String" , "cardinality" : "SINGLE"},
+		{"name" : "job_portal"  , "dataType" : "String" , "cardinality" : "SINGLE"},
+		{"name" : "job_alert"  , "dataType" : "Boolean" , "cardinality" : "SINGLE"},
+		{"name" : "experience_level"  , "dataType" : "String" , "cardinality" : "SINGLE"},
+		{"name" : "salary_level"  , "dataType" : "Float" , "cardinality" : "SINGLE"},
+		{"name" : "job_title"  , "dataType" : "String" , "cardinality" : "SINGLE"},
+		{"name" : "job_category"  , "dataType" : "String" , "cardinality" : "SINGLE"},
+		{"name" : "job_location"  , "dataType" : "String" , "cardinality" : "SINGLE"},
+		{"name" : "company_job_events"  , "dataType" : "String" , "cardinality" : "SINGLE"},
+		{"name" : "company_online_posted_jobs"  , "dataType" : "String" , "cardinality" : "SINGLE"},
+		{"name" : "company_jobs_byRole"  , "dataType" : "String" , "cardinality" : "SINGLE"},
+		{"name" : "company_jobs_bySkills"  , "dataType" : "String" , "cardinality" : "SINGLE"},
+		{"name" : "company_jobs_byIndustry"  , "dataType" : "String" , "cardinality" : "SINGLE"},
+		{"name" : "company_name"  , "dataType" : "String" , "cardinality" : "SINGLE"},
+		{"name" : "company_location"  , "dataType" : "String" , "cardinality" : "SINGLE"},
+		{"name" : "company_industry_type"  , "dataType" : "String" , "cardinality" : "SINGLE"},
+		{"name" : "recruiters_byCategory"  , "dataType" : "String" , "cardinality" : "SINGLE"},
+		{"name" : "recruiters_bySkills"  , "dataType" : "String" , "cardinality" : "SINGLE"},
+		{"name" : "recruiters_byLocation"  , "dataType" : "String" , "cardinality" : "SINGLE"},
+		{"name" : "recruiters_byCompanies"  , "dataType" : "String" , "cardinality" : "SINGLE"}
+	],
+
+	"vertexIndexes" : [
+		{"name" : "studentByName" , "propertyKeys" : ["student_FirstName","student_LastName"] ,"composite" : false , "indexOnly" : "Student"},
+		{"name" : "studentByEmail" , "propertyKeys" : ["student_Email"] ,"composite" : true , "unique" : true, "indexOnly" : "Student"},
+		{"name" : "companyByIndustryType" , "propertyKeys" : ["company_jobs_byIndustry"] ,"composite" : false , "indexOnly" : "Company"},
+		{"name" : "jobsByLocation" , "propertyKeys" : ["job_location"] ,"composite" : false , "indexOnly" : "Job"}
+	]
+}
